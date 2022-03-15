@@ -15,3 +15,7 @@ export const resultContainerStyles = theme => ({
         paddingBottom: paddingSM
     }
 }) 
+
+export const alignStyles = () => ({
+    textAlign: 'center'
+}) 

@@ -1,22 +1,17 @@
-import { Box, Container, TextField } from '@mui/material';
 import React from 'react';
+import Input from './components';
+
+import { Box, Container } from '@mui/material';
+import { resultContainerStyles, alignStyles } from './styles/styles';
+
 import { FormattedMessage } from 'react-intl';
-import { resultContainerStyles } from './styles/styles';
 
 const Result = () => {
-    const textValue = <FormattedMessage id='outputPlaceholder'/>
+    const label = <FormattedMessage id='outputPlaceholder'/>
     return (
         <Container maxWidth='xxl' sx={resultContainerStyles} >
-            <Box sx={{textAlign: 'center'}}>
-                <TextField
-                    id="outlined-multiline-static"
-                    label={textValue}
-                    multiline
-                    rows={6}
-                    fullWidth
-                    variant="outlined"
-                    disabled
-                />
+            <Box sx={alignStyles}>
+                <Input label={label} rows={6} disabled={true}/>
             </Box>
         </Container>
     );

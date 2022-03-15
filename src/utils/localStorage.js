@@ -3,7 +3,7 @@ const setLocalStorageItem = (path, item) => {
 }
 
 const getLocalStorageItem = (path) => {
-    return localStorage.getItem(path);
+    return JSON.parse(localStorage.getItem(path));
 }
 
 export {

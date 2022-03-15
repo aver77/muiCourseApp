@@ -1,19 +1,8 @@
-import React, {useState} from 'react';
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import React, { useState } from 'react';
+import { Select, FormControl, MenuItem, InputLabel, Box } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
 import { fontBreakPoints } from '../../../utils/breakpoints';
-import { selectionInputStyles, selectionBoxStyles } from './styles/selectionStyles';
-
-const paperStyles = theme => ({
-    bgcolor: theme.palette.selectedBackground,
-    '& .MuiMenuItem-root': {
-        color: theme.typography.allVariants.color
-    }
-})
+import { selectionInputStyles, selectionBoxStyles, paperStyles } from './styles/selectionStyles';
 
 const Selection = () => {
     const [age, setAge] = useState('');

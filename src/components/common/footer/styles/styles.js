@@ -7,3 +7,10 @@ export const footerBoxStyles = () => ({
     boxShadow: '0px 0px 3px 3px rgba(0, 0, 0, 0.16)', 
     zIndex: 999,
 })
+
+export const footerWrapBoxStyles = () => ({
+    height: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+})

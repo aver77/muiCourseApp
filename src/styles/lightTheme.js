@@ -1,5 +1,4 @@
 import { createTheme } from "@mui/material";
-// import { makeStyles } from '@mui/styles';
 
 export const lightTheme = createTheme({
     typography: {
@@ -14,7 +13,7 @@ export const lightTheme = createTheme({
         contrastText: '#121212',
         selectedBackground: '#fff',
         primary: {
-            main: '#BDBDBD', //button text white instead of black
+            main: '#BDBDBD', 
         },
         background: {
             default: 'rgba(255, 255, 255, 0.7)'

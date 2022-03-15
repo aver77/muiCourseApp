@@ -7,8 +7,15 @@ export const selectionBoxStyles = theme => ({
 
 export const selectionInputStyles = theme => ({
     marginTop: '-6px',
-    marginLeft: '-4px',
     [theme.breakpoints.down('sm')]: {
+        marginLeft: '-4px',
         fontSize: 14
+    }
+})
+
+export const paperStyles = theme => ({
+    bgcolor: theme.palette.selectedBackground,
+    '& .MuiMenuItem-root': {
+        color: theme.typography.allVariants.color
     }
 })
