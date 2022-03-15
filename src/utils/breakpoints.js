@@ -1,22 +1,19 @@
-import { fontSM, widthSM, hSM } from "../constants/breakpointsValues";
-import { createTheme } from "@mui/material";
+import { fontSM, widthSM, hSM } from "../constants/breakpointsValues"
 
-const theme = createTheme();
-
-export const fontBreakPoints = () => ({
+export const fontBreakPoints = (theme) => ({
     color: theme.typography.allVariants.color,
     [theme.breakpoints.down('sm')]: {
         fontSize: fontSM
     }
 })
 
-export const headerBreakPoints = () => ({
+export const headerBreakPoints = (theme) => ({
     [theme.breakpoints.down('sm')]: {
         fontSize: hSM
     }
 })
 
-export const picsBreakPoints = () => ({
+export const picsBreakPoints = (theme) => ({
     [theme.breakpoints.down('sm')]: {
         width: widthSM
     }

@@ -1,4 +1,4 @@
-export const footerBoxStyles = (theme) => ({
+export const footerBoxStyles = () => ({
     height: '64px', 
     width: '100%',
     position: 'fixed', 

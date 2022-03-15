@@ -1,9 +1,6 @@
-import { lightTheme } from '../styles/lightTheme';
-import { darkTheme } from '../styles/darkTheme';
-
-export const switchToLightTheme = (handleLanguage) => {
-    handleLanguage(lightTheme)
+export const switchToLightTheme = (handleTheme) => {
+    handleTheme(false)
 }
-export const switchToDarkTheme = (handleLanguage) => {
-    handleLanguage(darkTheme)
+export const switchToDarkTheme = (handleTheme) => {
+    handleTheme(true)
 }
