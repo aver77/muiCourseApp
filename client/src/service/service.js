@@ -4,7 +4,7 @@ import { setLocalStorageItem } from "utils/localStorage";
 const { default: axios } = require("axios");
 
 class Compile {
-    _apiBase = "http://localhost:5000";
+    _apiBase = "http://localhost:5001";
 
     async compileResourse(programmingLanguage, code) {
         const res = await axios.post(`${this._apiBase}/code`, {

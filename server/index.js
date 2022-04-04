@@ -10,8 +10,10 @@ app.use(cors());
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 
+app.listen(5001, () => {});
+
 app.get('/', (req, res) => {
-    return res.json("Server is running on 5000 port");
+    return res.json("Server is running on 5001 port");
 })
 
 app.post("/code", async (req, res) => {
@@ -30,5 +32,3 @@ app.post("/code", async (req, res) => {
         return res.status(500).json({success: false, error: "Compile code error"});
     }
 })
-
-app.listen(5000, () => {});

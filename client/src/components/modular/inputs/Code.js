@@ -3,11 +3,11 @@ import { Box, Container, TextField } from '@mui/material';
 import { FormattedMessage } from 'react-intl';
 
 import { getLocalStorageItem } from 'utils/localStorage';
-import { SWITCH_THEMES } from 'constants/specificWords';
-import { CURRENT_CODE } from 'constants/specificWords';
-import { codeContainerStyles, alignStyles } from './styles/styles';
-import { DEFAULT_CODE_ROWS } from 'constants/inputValues';
+import { SWITCH_THEMES, CURRENT_CODE } from 'constants/specificWords';
+import { codeContainerStyles, alignStyles } from './styles';
 import { useWithLocalStorages } from 'hooks/useWithLocalStorages';
+import { DEFAULT_CODE_ROWS } from 'constants/inputValues';
+import { ternaryOperation } from 'utils/ternaryOperation';
 
 const Code = () => {
     const currentColor = getLocalStorageItem(SWITCH_THEMES)?"rgba(255, 255, 255, 0.7)":'#121212';
@@ -36,7 +36,7 @@ const Code = () => {
                     variant="outlined"
                     color="primary"
                     disabled={false}
-                    value={codeValue.variable?codeValue.variable:""}
+                    value={ternaryOperation(codeValue.variable, codeValue.variable, undefined)}
                     onChange={handleTextField}
                 />
             </Box>
