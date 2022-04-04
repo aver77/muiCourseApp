@@ -1,4 +1,4 @@
-import { marginSM, paddingSM } from "../../../../constants/breakpointsValues";
+import { marginSM, paddingSM } from "constants/breakpointsValues";
 
 export const codeContainerStyles = theme => ({
     paddingTop: '100px',
