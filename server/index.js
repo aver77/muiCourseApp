@@ -29,6 +29,6 @@ app.post("/code", async (req, res) => {
         const output = await executeCpp(filepath);
         return res.json({filepath, output});
     } catch {
-        return res.status(500).json({success: false, error: "Compile code error"});
+        return res.json({output: "Compile code error"});
     }
 })

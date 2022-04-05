@@ -1,5 +1,5 @@
 import React from 'react';
-import View from 'view/View';
+import View from 'view';
 import WithIntl from 'HOCs/withIntl';
 
 const App = () => {

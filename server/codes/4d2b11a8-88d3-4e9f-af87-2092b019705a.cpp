@@ -1,0 +1,1 @@
+        setLocalStorageItem(CURRENT_SERVER_ANSWER, JSON.stringify(res.data.output));

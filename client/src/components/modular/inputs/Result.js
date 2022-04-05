@@ -15,14 +15,6 @@ const Result = () => {
 
     const resultValue = useWithLocalStorages(CURRENT_SERVER_ANSWER);
 
-    const handleInput = (e) => {
-        if (e.target.value) {
-            resultValue.variableHandler(e.target.value)
-        } else {
-            resultValue.variableHandler(false);
-        }
-    };
-
     return (
         <Container maxWidth='xxl' sx={resultContainerStyles} >
             <Box sx={alignStyles}>
@@ -36,7 +28,6 @@ const Result = () => {
                     variant="outlined"
                     color="primary"
                     value={ternaryOperation(resultValue.variable, resultValue.variable, undefined)}
-                    onChange={handleInput}
                 />
              </Box>
         </Container>

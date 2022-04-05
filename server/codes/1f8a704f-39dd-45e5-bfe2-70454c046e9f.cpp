@@ -1,0 +1,1 @@
+getLocalStorageItem(CURRENT_SERVER_ANSWER)
