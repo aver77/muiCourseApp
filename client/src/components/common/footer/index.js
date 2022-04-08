@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Typography, Box } from '@mui/material';
 import { footerBoxStyles, footerWrapBoxStyles } from './styles';
 
@@ -16,4 +16,4 @@ const Footer = () => {
     );
 };
 
-export default Footer;
+export default memo(Footer);

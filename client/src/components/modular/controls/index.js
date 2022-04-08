@@ -9,14 +9,17 @@ import { getLocalStorageItem } from 'utils/localStorage';
 import { CURRENT_CODE, CURRENT_PROGRAMMING_LANGUAGE } from 'constants/specificWords';
 import Service from 'service';
 
-const Controls = () => {
+const Controls = ({serverAnswerHandler}) => {
+
     const handleClick = useCallback(() => {
         const currentCode = getLocalStorageItem(CURRENT_CODE);
         const currentLanguage = getLocalStorageItem(CURRENT_PROGRAMMING_LANGUAGE);
         if (currentCode && currentLanguage) {
-            new Service().compileResourse(currentLanguage, currentCode);
+            new Service().compileResourse(currentLanguage, currentCode).then((data) => {
+                serverAnswerHandler(data);
+            })
         }
-    }, [])
+    }, [serverAnswerHandler])
 
     return (
         <Container maxWidth='xxl'>

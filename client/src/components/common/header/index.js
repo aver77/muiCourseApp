@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import {AppBar, Box, Toolbar, Typography, Stack, useMediaQuery} from '@mui/material';
 import { LightMode, ModeNight } from '@mui/icons-material';
 import { useTheme } from '@mui/material/styles';
@@ -40,4 +40,4 @@ const Header = ({localizationHandler, currentThemeHandler}) => {
     );
 };
 
-export default Header;
+export default memo(Header);
