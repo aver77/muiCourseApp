@@ -1,33 +1,40 @@
-import React, { memo } from 'react';
-import { Box, Container, TextField } from '@mui/material';
-import { FormattedMessage } from 'react-intl';
+import React, { memo } from "react";
+import { Box, Container, TextField } from "@mui/material";
+import { FormattedMessage } from "react-intl";
 
-import { getLocalStorageItem } from 'utils/localStorage';
-import { SWITCH_THEMES } from 'constants/specificWords';
-import { CURRENT_CODE } from 'constants/specificWords';
-import { codeContainerStyles, alignStyles } from './styles/styles';
-import { DEFAULT_CODE_ROWS } from 'constants/inputValues';
-import { useWithLocalStorages } from 'hooks/useWithLocalStorages';
+import { codeContainerStyles, alignStyles } from "./styles";
+import { useWithLocalStorages } from "hooks/useWithLocalStorages";
+import {
+    DARK_COLOR,
+    DEFAULT_CODE_ROWS,
+    LIGHT_COLOR,
+} from "constants/inputValues";
+import { SWITCH_THEMES, CURRENT_CODE } from "constants/specificWords";
+import { getLocalStorageItem } from "utils/localStorage";
+import { ternaryOperation } from "utils/ternaryOperation";
 
 const Code = () => {
-    const currentColor = getLocalStorageItem(SWITCH_THEMES)?"rgba(255, 255, 255, 0.7)":'#121212';
-    const label = <FormattedMessage id='inputPlaceholder'/>
-
+    const label = <FormattedMessage id="inputPlaceholder" />;
     const codeValue = useWithLocalStorages(CURRENT_CODE);
+    const currentColor = ternaryOperation(
+        getLocalStorageItem(SWITCH_THEMES),
+        LIGHT_COLOR,
+        DARK_COLOR
+    );
 
-    const handleTextField = (e) => {
+    const handleTextField = e => {
         if (e.target.value) {
-            codeValue.variableHandler(e.target.value)
+            codeValue.variableHandler(e.target.value);
         } else {
             codeValue.variableHandler(false);
         }
     };
 
     return (
-        <Container maxWidth='xxl' sx={codeContainerStyles} >
+        <Container maxWidth="xxl" sx={codeContainerStyles}>
             <Box sx={alignStyles}>
                 <TextField
-                    InputProps={{style: {color: currentColor}}}
+                    InputProps={{ style: { color: currentColor } }}
                     id="outlined-multiline-static"
                     label={label}
                     multiline
@@ -36,7 +43,11 @@ const Code = () => {
                     variant="outlined"
                     color="primary"
                     disabled={false}
-                    value={codeValue.variable?codeValue.variable:""}
+                    value={ternaryOperation(
+                        codeValue.variable,
+                        codeValue.variable,
+                        undefined
+                    )}
                     onChange={handleTextField}
                 />
             </Box>

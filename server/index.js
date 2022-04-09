@@ -1,34 +1,49 @@
 const express = require("express");
 const cors = require("cors");
 
-const { generateFile } = require("./generateFile");
-const { executeCpp } = require("./executeCpp");
+const { generateFile } = require("./generations/generateFile");
+const { executeCpp } = require("./executions/executeCpp");
+const { executePy } = require("./executions/executePy");
+const { executeJs } = require("./executions/executeJs");
 
 const app = express();
 
 app.use(cors());
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-app.get('/', (req, res) => {
-    return res.json("Server is running on 5000 port");
-})
+app.listen(5001, () => {});
+
+app.get("/", (req, res) => {
+    return res.json("Server is running on 5001 port");
+});
 
 app.post("/code", async (req, res) => {
     const { language = "cpp", code } = req.body;
 
     if (code === undefined) {
-        return res.status(400).json({success: false, error: "Empty code body"});
+        return res
+            .status(400)
+            .json({ success: false, error: "Empty code body" });
     }
-    //generate a file with code from request
+    //генерация файла с кодом запроса
     const filepath = await generateFile(language, code);
     try {
-        //run file and send the response
-        const output = await executeCpp(filepath);
-        return res.json({filepath, output});
-    } catch {
-        return res.status(500).json({success: false, error: "Compile code error"});
-    }
-})
+        let output;
+        if (language === "cpp") {
+            output = await executeCpp(filepath);
+        }
 
-app.listen(5000, () => {});
+        if (language === "py") {
+            output = await executePy(filepath);
+        }
+
+        if (language === "js") {
+            output = await executeJs(filepath);
+        }
+
+        return res.json({ filepath, output });
+    } catch {
+        return res.json({ output: "Compile code error" });
+    }
+});
