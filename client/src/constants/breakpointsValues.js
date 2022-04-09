@@ -1,5 +1,5 @@
-export const fontSM = 14;
-export const hSM = 26;
-export const widthSM = 20;
-export const marginSM = '12px';
-export const paddingSM = '80px';
+export const smallSize = 14;
+export const hugeSize = 26;
+export const mediumSize = 20;
+export const marginSmall = "12px";
+export const paddingSmall = "80px";

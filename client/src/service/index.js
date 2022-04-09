@@ -1,4 +1,3 @@
-
 const { default: axios } = require("axios");
 
 class Compile {
@@ -7,8 +6,8 @@ class Compile {
     async compileResourse(programmingLanguage, code) {
         const res = await axios.post(`${this._apiBase}/code`, {
             language: programmingLanguage,
-            code
-        })
+            code,
+        });
 
         return res.data.output;
     }
