@@ -1,4 +1,5 @@
 import { createTheme } from "@mui/material";
+import { LIGHT_COLOR } from "constants/inputValues";
 
 export const darkTheme = createTheme({
     typography: {
@@ -30,11 +31,14 @@ export const darkTheme = createTheme({
         },
     },
     transitions: ".2s ease",
-    //scrollbar
+    //input color and scrollbar
     components: {
         MuiCssBaseline: {
             styleOverrides: {
                 body: {
+                    "& .MuiInputBase-root": {
+                        color: LIGHT_COLOR,
+                    },
                     "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
                         width: 12,
                         backgroundColor: "#414141",

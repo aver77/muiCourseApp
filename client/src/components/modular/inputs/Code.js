@@ -4,23 +4,13 @@ import { FormattedMessage } from "react-intl";
 
 import { codeContainerStyles, alignStyles } from "./styles";
 import { useWithLocalStorages } from "hooks/useWithLocalStorages";
-import {
-    DARK_COLOR,
-    DEFAULT_CODE_ROWS,
-    LIGHT_COLOR,
-} from "constants/inputValues";
-import { SWITCH_THEMES, CURRENT_CODE } from "constants/specificWords";
-import { getLocalStorageItem } from "utils/localStorage";
+import { DEFAULT_CODE_ROWS } from "constants/inputValues";
+import { CURRENT_CODE } from "constants/specificWords";
 import { ternaryOperation } from "utils/ternaryOperation";
 
 const Code = () => {
     const label = <FormattedMessage id="inputPlaceholder" />;
     const codeValue = useWithLocalStorages(CURRENT_CODE);
-    const currentColor = ternaryOperation(
-        getLocalStorageItem(SWITCH_THEMES),
-        LIGHT_COLOR,
-        DARK_COLOR
-    );
 
     const handleTextField = e => {
         if (e.target.value) {
@@ -34,7 +24,6 @@ const Code = () => {
         <Container maxWidth="xxl" sx={codeContainerStyles}>
             <Box sx={alignStyles}>
                 <TextField
-                    InputProps={{ style: { color: currentColor } }}
                     id="outlined-multiline-static"
                     label={label}
                     multiline
