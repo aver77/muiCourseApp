@@ -19,7 +19,7 @@ const Result = ({ serverAnswer }) => {
                         disableUnderline: true,
                     }}
                     id="outlined-multiline-static"
-                    label={label}
+                    label={ternaryOperation(serverAnswer, undefined, label)}
                     multiline
                     rows={DEFAULT_RESULT_ROWS}
                     fullWidth
